@@ -12,7 +12,13 @@
     {% if site.layout.bgcolor %}
     <style>
       body {
-        background: {{ site.layout.bgcolor }};
+        background: {
+            {
+            site.layout.bgcolor
+          }
+        }
+
+        ;
       }
     </style>
     {% endif %}
