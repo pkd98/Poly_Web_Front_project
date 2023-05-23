@@ -2,30 +2,51 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
-        <title>Polytech</title>
+        <title>하나1PIECE</title>
         <!-- bootstrap -->
         <!-- npm으로 설치한 bootstrap -->
         <link rel="stylesheet" href='{{ "/assets/css/styles.css" | relative_url }}'>
         <link href="../assets/css/fontSetting.css" rel="stylesheet">
-
         <style>
+            html {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
 
+            #wrapper1 {
+                background-color: #1ae4a0;
+            }
+
+            #loginBar {
+                display: flex;
+                justify-content: end;
+            }
+
+            nav {
+                height: 10vh;
+            }
+
+            #jumbotron {}
         </style>
     </head>
 
     <body>
-        <header>
-            <!-- nav bar -->
-            <nav id="nav">
-                {% include nav.html %}
-            </nav>
-            <!-- nav bar 외 추가할 header -->
-            {% include header.html%}
-        </header>
+        <div id="wrapper1">
+            <header>
+                <!-- nav bar 외 추가할 header -->
+                {% include header.html%}
+                <!-- jumbotron -->
+                <div id="jumbotron">
+                    {% include jumbotron.html %}
+                </div>
+
+
+            </header>
+        </div>
+
         <main>
-
             <h1>{{content}}</h1>
-
         </main>
 
         <footer>

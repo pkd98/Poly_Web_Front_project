@@ -2,24 +2,30 @@
 layout: bootstrap
 ---
 {% if site.layout.width %}
-    <style>
-        #wrapper {
-            max-width: {{site.layout.width}}; 
-            height: 100vh; 
-            margin: 0 auto; 
+<style>
+    #wrapper {
+        max-width: {
+                {
+                site.layout.width
+            }
         }
-    </style>
-    <div id="wrapper">
-        {{content}}
-    </div>
+
+        ;
+        height: 100vh;
+        margin: 0 auto;
+    }
+</style>
+<div id="wrapper">
+    {{content}}
+</div>
 {% else %}
-    <style>
-        #wrapper {
-            height: 100vh;
-        }
-    </style>
-    <div id="wrapper">
-        {{content}}
-    </div>
+<style>
+    #wrapper {
+        height: 100vh;
+    }
+</style>
+<div id="wrapper">
+    {{content}}
+</div>
 
 {% endif %}
