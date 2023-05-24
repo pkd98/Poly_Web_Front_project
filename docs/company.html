@@ -7,41 +7,57 @@
         <!-- npm으로 설치한 bootstrap -->
         <link rel="stylesheet" href='/assets/css/styles.css'>
         <link href="../assets/css/fontSetting.css" rel="stylesheet">
-        <style>
-            html {
-                display: flex;
-                justify-content: center;
-                width: 100%;
-            }
-
-            #wrapper1 {
-                background-color: #1ae4a0;
-            }
-
-            #loginBar {
-                display: flex;
-                justify-content: end;
-            }
-
-            nav {
-                height: 10vh;
-            }
-
-            #jumbotron {}
-        </style>
+        <link href="../assets/css/layout.css" rel="stylesheet">
     </head>
 
     <body>
-        <div id="wrapper1">
+        <div class="wrapper">
             <header>
-                <!-- nav bar 외 추가할 header -->
+                <div></div>
+                <!-- header -->
                 <!-- 로그인 표시 바 -->
 <div id="loginBar">
-    test
-</div>
+    <div id="loginBar">
+    <!-- Varying modal -->
+    <button type="button" class="btn btn-link no-underline-black" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        data-whatever="@mdo">로그인</button>
+    <button type="button" class="btn btn-link no-underline-black" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        data-whatever="@fat">회원가입</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelOne"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabelOne">New message</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+</div>
+</div>
 <!-- nav bar -->
-<!-- Navbar -->
+<div id="navBar">
+    <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="/"><img src="../assets/img/hana_logo.png" width="12%" height="12%">하나1PIECE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -101,30 +117,21 @@
         </ul>
     </div>
 </nav>
-                <!-- jumbotron -->
-                <div id="jumbotron">
-                    <div class="jumbotron">
-    <h1 class="display-4">Welcome to our Website!</h1>
-    <p class="lead">We offer the best products and services to our customers.</p>
-    <hr class="my-4">
-    <p>Learn more about what we have to offer and how we can help you.</p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Get Started</a>
 </div>
-                </div>
-
-
             </header>
-        </div>
 
-        <main>
-            <h1><div>
+
+            <main>
+                <h1><div>
     회사 소개
 </div></h1>
-        </main>
+            </main>
 
-        <footer>
-            하나하나하나
-        </footer>
+
+            <footer>
+                하나하나하나
+            </footer>
+        </div>
 
         <!-- bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

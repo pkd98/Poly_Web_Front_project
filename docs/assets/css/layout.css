@@ -1,0 +1,39 @@
+/*  */
+/* header {
+
+} */
+header {
+    width: 100%;
+    min-width: 464px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    background-color: aquamarine;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+#loginBar {
+    display: flex;
+    justify-content: end;
+}
+
+#navBar {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+
+#jumbotron {}
+
+.btn.no-underline-black {
+    text-decoration: none;
+    color: black;
+}
