@@ -33,23 +33,39 @@
     font-family: Hana2-Regular;
     src: url('../font/Hana2.0_TTF/Hana2-Regular.ttf') format('truetype');
     font-weight: normal;
-    font-style: normal;     
+    font-style: normal;
 }
 
 html {
     font-family: 'Hana2-Medium', sans-serif;
     -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%;
 }
 
-body {
-    font-family: 'Hana2-Heavy', sans-serif;
+header {
+    font-family: 'Hana2-Bold', sans-serif;
     -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%;
+    font-size: x-large;
+}
+
+main {
+    font-family: 'Hana2-Regular', sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: x-large;
+}
+
+main>#jumbotron {
+    font-family: 'Hana2-Bold', sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: x-large;
 }
 
 footer {
     font-family: 'Hana2-Light', sans-serif;
     -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%;
+    font-size: large;
 }
