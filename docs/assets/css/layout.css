@@ -3,7 +3,6 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    background: linear-gradient(to bottom, #E0FFF7, #FFFFFF);
     /* background-color: #E0FFF7; */
 }
 
@@ -13,6 +12,10 @@
     align-items: stretch;
     justify-content: center;
     flex-direction: column;
+}
+
+header {
+    background-color: #E0FFF7;
 }
 
 #accountBar {
@@ -28,9 +31,21 @@
 
 #content {
     background-color: white;
+    margin-bottom: 30px;
+
 }
 
-.wrapper>footer {
+#mainList {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#mainList>img {
+    min-width: 300px;
+    max-height: 300px;
+}
+
+footer {
     margin: 0;
     display: flex;
     width: 100%;
@@ -38,7 +53,8 @@
     justify-content: center;
     align-items: stretch;
     place-items: center;
-    background-color: #FCFCFC;
+    background-color: #E0FFF7;
+
 }
 
 #loginBar {
@@ -53,6 +69,7 @@
 }
 
 .jumbotron {
+    background: linear-gradient(to bottom, #E0FFF7, #E0FFF7, #FFFFFF);
     display: flex;
     justify-content: center;
     flex-direction: row;
