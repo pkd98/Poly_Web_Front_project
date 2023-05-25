@@ -3,7 +3,7 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    background: linear-gradient(to bottom, #E0FFF7, #E0FFF7, #FFFFFF);
+    background: linear-gradient(to bottom, #E0FFF7, #FFFFFF);
     /* background-color: #E0FFF7; */
 }
 
@@ -31,6 +31,7 @@
 }
 
 .wrapper>footer {
+    margin: 0;
     display: flex;
     width: 100%;
     min-height: 100px;
@@ -94,6 +95,13 @@
         margin-bottom: 30px;
         width: 100%;
         height: 120px;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background-color: #f8f9fa;
+        /* navbar의 배경색과 일치시키기 */
     }
 }
 
