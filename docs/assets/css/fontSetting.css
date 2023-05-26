@@ -69,3 +69,11 @@ footer {
     -webkit-text-size-adjust: 100%;
     font-size: large;
 }
+
+.square>a>p {
+    font-family: Hana2-Heavy;
+    src: url('../font/Hana2.0_TTF/Hana2-Heavy.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
