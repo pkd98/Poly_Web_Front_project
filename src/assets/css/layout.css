@@ -51,31 +51,38 @@ header {
     height: 300px;
 }
 
+.gridContainer {
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    width: 100%;
+}
+
 .square {
+    margin: 30px;
     display: flex;
     align-items: center;
     flex-direction: column;
     align-content: center;
+    width: 330px;
+    height: 330px;
 }
 
 .square>a {
-
     color: #008485;
     text-decoration: none;
 }
 
 .square>a>.img-fluid {
-    width: max-content;
-    height: 300px;
+    min-width: 330px;
+    height: 330px;
+    /* width: max-content;
+    height: 300px; */
 }
-
 
 .square>a>p {
     display: flex;
     justify-content: center;
 }
-
-
 
 
 footer {
@@ -118,6 +125,14 @@ footer {
     height: 500px;
 }
 
+@media (max-width: 1155px) {
+    .gridContainer {
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        width: 100%;
+    }
+}
+
 @media (max-width: 1055px) {
     .jumbotron {
         display: flex;
@@ -155,6 +170,14 @@ footer {
     }
 }
 
+@media (max-width: 780px) {
+    .gridContainer {
+        grid-template-columns: repeat(1, 1fr);
+        display: grid;
+        width: 100%;
+    }
+}
+
 .lead {
     display: flex;
     align-items: stretch;
@@ -169,4 +192,28 @@ footer {
 .btn.no-underline-black {
     text-decoration: none;
     color: black;
+}
+
+.xButton {
+    position: relative;
+    width: 100%;
+}
+
+.bbtn {
+    position: absolute;
+    right: 10px;
+}
+
+.modal-body>button {}
+
+.modal-body>h5 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 35px;
+}
+
+.modal-footer>button {
+    background-color: #008485;
+    width: 100%;
+    height: 50px;
 }
