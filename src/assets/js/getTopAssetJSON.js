@@ -12,9 +12,11 @@ function getHttpRequest(url, callback) {
             }
         }
     }
+
     request.open('GET', url, true); // GET 메서드를 이용해 url로 HTTP 요청을 열기
     request.send(); // HTTP 요청을 보냄
 }
+
 
 // 부동산 데이터를 웹 페이지에 추가하는 함수
 function addRealEstateDataToPage() {
@@ -93,6 +95,7 @@ function addArtDataToPage() {
         }
     });
 }
+
 
 // 웹 페이지 로드 완료 시 함수를 실행
 window.onload = function () {

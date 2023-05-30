@@ -56,6 +56,13 @@ main {
     font-size: x-large;
 }
 
+main>h2 {
+    font-family: 'Hana2-Bold', sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: xx-large;
+}
+
 main>#jumbotron {
     font-family: 'Hana2-Bold', sans-serif;
     -ms-text-size-adjust: 100%;
