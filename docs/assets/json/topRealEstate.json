@@ -1,0 +1,14 @@
+[
+    {
+        "name": "광명 융합기술교육원",
+        "image": "../assets/img/building/polytech.png"
+    },
+    {
+        "name": "롯데타워 시그니엘",
+        "image": "../assets/img/building/lotteTower.jpg"
+    },
+    {
+        "name": "청라 하나금융그룹",
+        "image": "../assets/img/building/hana_group.jpg"
+    }
+]

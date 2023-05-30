@@ -1,0 +1,14 @@
+[
+    {
+        "name": "모나리자",
+        "image": "../assets/img/art/monarisa.jpg"
+    },
+    {
+        "name": "별이 빛나는 밤에",
+        "image": "../assets/img/art/starryNight.webp"
+    },
+    {
+        "name": "메타콩즈",
+        "image": "../assets/img/art/metakongz.jpg"
+    }
+]
