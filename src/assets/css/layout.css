@@ -229,25 +229,104 @@ main>h2 {
 
 .balance-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    align-items: start;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
-    width: 200px;
+    width: 80%;
+    min-width: 500px;
     background-color: #f9f9f9;
+    margin: 0 auto 30px;
 }
 
+
+@media screen and (max-width: 900px) {
+    .balance-container {
+        flex-wrap: wrap;
+    }
+
+    .balance-info,
+    .asset-distribution {
+        width: 100%;
+    }
+}
+
+
 .balance-title {
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: x-large;
     margin-bottom: 10px;
-    color: #333;
-    font-size: 24px;
 }
 
 .balance-amount {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
+    font-size: 30px;
+}
+
+.balance-info {
+    margin: 20px;
+    height: auto;
+    width: 45%;
+    min-width: 350px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.asset-distribution {
+    margin: 20px;
+    height: auto;
+    width: 45%;
+    min-width: 250px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profit,
+.profit-percentage {
+    color: green;
+}
+
+.investment {
+    width: 100%;
+}
+
+.investment .title {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+}
+
+
+.investment .amount {
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.flex-container .amount {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+
+hr {
+    width: 100%;
+    margin: 10px 0;
 }
