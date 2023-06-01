@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <style>
+            /* CSS 스타일 지정 */
             table {
                 width: 100%;
             }
@@ -93,7 +94,7 @@
                                     } else {
                                         target.parentNode.insertBefore(draggedElem, target);
                                     }
-                                    draggedElemIndex = currentIndex;  // Update the dragged element's index
+                                    draggedElemIndex = currentIndex;  // 드래그된 엘리먼트의 인덱스 업데이트
                                 }
                             });
 
@@ -151,6 +152,7 @@
                     selectAllCell.appendChild(selectAllCheckbox);
                     hrow.appendChild(selectAllCell);
 
+                    // 'ID'와 'Title' 열을 생성하여 헤더 행에 추가
                     ['ID', 'Title'].forEach((text) => {
                         const th = document.createElement('th');
                         th.textContent = text;
@@ -162,6 +164,7 @@
                     table.appendChild(tbody);
                     document.body.appendChild(table);
 
+                    // 페이지네이션을 위한 div 요소 생성
                     const paginationDiv = document.createElement('div');
                     for (let i = 1; i <= totalPages; i++) {
                         const pageButton = document.createElement('button');
