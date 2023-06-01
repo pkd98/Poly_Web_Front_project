@@ -22,3 +22,5 @@ sass:
 plugins:
     - jekyll-seo-tag
     - jekyll-sitemap
+
+port: 1234

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            table {
+                width: 100%;
+            }
+
+            th,
+            td {
+                text-align: center;
+                padding: 8px;
+            }
+
+            thead {
+                background-color: black;
+                color: white;
+            }
+
+            tbody tr:nth-child(odd) {
+                background-color: #dddddd;
+            }
+
+            tbody tr:nth-child(even) {
+                background-color: #bbbbbb;
+            }
+
+            tbody tr.checked {
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            // forum.json 파일 fetch
+            fetch('forum.json')
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not OK');
+                    }
+                    // response를 json으로 파싱
+                    return response.json();
+                })
+                .then((data) => {
+                    // Page Nation 구현을 위한 변수 초기화
+                    const itemsPerPage = 10;
+                    let currentPage = 1;
+                    let totalPages = Math.ceil(data.length / itemsPerPage);
+
+                    // 테이블 요소 생성
+                    const table = document.createElement('table');
+                    const thead = document.createElement('thead');
+                    const tbody = document.createElement('tbody');
+
+                    // 드래그 중인 엘리먼트와 그 인덱스를 저장할 변수
+                    let draggedElem = null;
+                    let draggedElemIndex = null;
+
+                    // Page Nation 함수 정의
+                    const paginate = (page) => {
+                        tbody.innerHTML = ""; // tbody 초기화
+                        let start = (page - 1) * itemsPerPage;
+                        let end = start + itemsPerPage;
+
+                        // 현재 페이지의 항목에 대해 반복
+                        data.slice(start, end).forEach((item) => {
+                            // 새로운 행을 만들고 드래그 가능하게 함
+                            const row = document.createElement('tr');
+                            row.draggable = true;
+
+                            // dragstart에 대한 이벤트 리스너
+                            row.addEventListener('dragstart', (e) => {
+                                if (!row.querySelector('input[type="checkbox"]').checked) {
+                                    e.preventDefault();
+                                } else {
+                                    draggedElem = row;
+                                    draggedElemIndex = Array.from(tbody.children).indexOf(draggedElem);
+                                }
+                            });
+
+                            //dragover에 대한 이벤트 리스너
+                            row.addEventListener('dragover', (e) => {
+                                e.preventDefault();
+                                const target = e.target.closest('tr');
+                                if (target && target !== draggedElem) {
+                                    const currentIndex = Array.from(tbody.children).indexOf(target);
+                                    if (currentIndex > draggedElemIndex) {
+                                        target.parentNode.insertBefore(draggedElem, target.nextSibling);
+                                    } else {
+                                        target.parentNode.insertBefore(draggedElem, target);
+                                    }
+                                    draggedElemIndex = currentIndex;  // Update the dragged element's index
+                                }
+                            });
+
+                            // 체크박스를 생성하고 행에 추가
+                            const checkCell = document.createElement('td');
+                            const checkbox = document.createElement('input');
+                            checkbox.type = "checkbox";
+
+                            // 체크박스에 변경 이벤트 리스너를 추가
+                            checkbox.addEventListener('change', () => {
+                                if (checkbox.checked) {
+                                    row.classList.add('checked'); // 선택된 행에 'checked' 클래스 추가
+                                } else {
+                                    row.classList.remove('checked'); // 'checked' 클래스 제거
+                                }
+                            });
+
+                            checkCell.appendChild(checkbox);
+                            row.appendChild(checkCell);
+
+                            const idCell = document.createElement('td');
+                            idCell.textContent = item.id;
+                            row.appendChild(idCell);
+
+                            const titleCell = document.createElement('td');
+                            titleCell.textContent = item.title;
+                            row.appendChild(titleCell);
+
+                            tbody.appendChild(row);
+                        });
+                    }
+
+                    // 헤더 행 생성
+                    const hrow = document.createElement('tr');
+                    const selectAllCell = document.createElement('th');
+                    const selectAllCheckbox = document.createElement('input');
+
+                    // 모든 행을 선택하거나 선택 해제할 수 있는 체크박스를 생성
+                    selectAllCheckbox.type = 'checkbox';
+
+                    // '모두 선택' 체크박스에 변경 이벤트 리스너 추가
+                    selectAllCheckbox.addEventListener('change', () => {
+                        const checkboxes = table.querySelectorAll('tbody input[type="checkbox"]');
+                        checkboxes.forEach(checkbox => {
+                            checkbox.checked = selectAllCheckbox.checked;
+                            const row = checkbox.parentNode.parentNode;
+                            if (checkbox.checked) {
+                                row.classList.add('checked'); // 선택된 행에 'checked' 클래스 추가
+                            } else {
+                                row.classList.remove('checked'); // 'checked' 클래스 제거
+                            }
+                        });
+                    });
+
+                    selectAllCell.appendChild(selectAllCheckbox);
+                    hrow.appendChild(selectAllCell);
+
+                    ['ID', 'Title'].forEach((text) => {
+                        const th = document.createElement('th');
+                        th.textContent = text;
+                        hrow.appendChild(th);
+                    });
+
+                    thead.appendChild(hrow);
+                    table.appendChild(thead);
+                    table.appendChild(tbody);
+                    document.body.appendChild(table);
+
+                    const paginationDiv = document.createElement('div');
+                    for (let i = 1; i <= totalPages; i++) {
+                        const pageButton = document.createElement('button');
+                        pageButton.textContent = i;
+                        pageButton.addEventListener('click', () => {
+                            currentPage = i;
+                            paginate(currentPage);
+                        });
+                        paginationDiv.appendChild(pageButton);
+                    }
+
+                    document.body.appendChild(paginationDiv);
+                    paginate(currentPage);
+                })
+                .catch((error) => {
+                    console.log('Error:', error);
+                });
+        </script>
+    </body>
+</html>
